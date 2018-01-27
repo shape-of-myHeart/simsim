@@ -17,8 +17,9 @@ $(document).ready(function () {
             }
         }
     ];
+    let sectionIndex = 0;
     const makeSection = ({ thumbnail, caption }) => `
-<div class="section" style="top: 0; right: 0;">
+<div class="section" style="top: 0; right: 0; animation-delay: ${(++sectionIndex * .25)}s">
     <div class="thumbnail" style="background-image: url(${thumbnail});"></div>
     <div class="caption" style="background-color: ${caption.backgroundColor}">${caption.text}</div>
 </div>
@@ -26,13 +27,13 @@ $(document).ready(function () {
 
     for(const i in sections){
         const section = sections[i];
-        main.append(makeSection(section));
+        main.append(makeSection(section, i));
         // 테스트
-        main.append(makeSection(section));
-        main.append(makeSection(section));
-        main.append(makeSection(section));
-        main.append(makeSection(section));
-        main.append(makeSection(section));
+        main.append(makeSection(section, i));
+        main.append(makeSection(section, i));
+        main.append(makeSection(section, i));
+        main.append(makeSection(section, i));
+        main.append(makeSection(section, i));
     }
     
 });
